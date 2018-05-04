@@ -17,7 +17,8 @@ Features:
 -Display comics based on arc
 -Display comics based on series name
 -Display actual comic for select comics
--Display comics based on publisher
+-Display comics based on publisher (Possibly allow user to see only comics from a specific publisher
+by having them press a button with their logo)
 -Dislay user info
 	-Total comics
 	-Total spent
