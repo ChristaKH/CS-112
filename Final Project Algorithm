@@ -1,0 +1,166 @@
+
+/* CS 112 Final Project */
+Features:
+-Can input and store comics
+	-Comic Name
+	-Comic Arc
+	-Issue Number
+	-Publisher name
+	-Variant or not
+	-Cover Price
+	-Price Paid
+	-Resale Price
+	-Graded Resale Price
+	-Year release
+	-Comic grade
+-Can display list of missing comics in a series
+-Display comics based on arc
+-Display comics based on series name
+-Display actual comic for select comics
+-Display comics based on publisher
+-Dislay user info
+	-Total comics
+	-Total spent
+-Can input want list
+	-Comic name
+	-Comic Arc
+	-Issue Number
+	-Variant or not
+	-Projected Price
+	-Level of want
+=================================================================================================
+//Algorithm - Comic Class
+/* This class describes an individual comic and allows its data to be manipulated */
+// Uses javax.Swing.*
+// Uses java.awt.*
+// Uses java.awt.events.*
+// Implements Comparable
+..............................................................................................
+// Instance Variables:
+//	-(String) comicName: name of comic. Make uppercase. Default is empty String.
+//	-(String) comicArc: name of comic arc. Make uppercase. Default is empty String.
+//	-(int) issueNumber: issue number for the comic. Cannot be negative. Zero is an option. 
+//	Default is zero.
+//	-(String) publisher: name of publisher (Marvel, DC, Image, etc )
+//	-(String) variant: last name of the cover artist for the variant. If the comic is not
+//	a variant then the value/default is an empty String
+//	-(double) coverPrice: cover price of the comic. Cannot be a negative number. Price
+//	can be zero. Default is zero.
+//	-(double) paidPrice: price that was paid for the comic. Cannot be negative. Default
+//	is zero.
+//	-(double) resalePrice: amount that the user could receive if the comic is sold. Amount
+//	cannot be negative. Default is 0.
+//	-(double) gradedResalePrice: amount that the user could receive if they sold the comic
+//	after it was graded at a 9.8
+//	-(int) year: year that the comic was released. Cannot be negative. Default is 0 but 
+//	default is the only time that the [year] should be less than 1800. [year] cannot be 
+//	greater than 2 years after the current year.
+//	-(double) grade: graded value of the comic on a 0-10 scale. Default is 0.
+...............................................................................................
+// Constructors:
+// 	-Comic(): Default constructor. [comicName] is empty. [comicArc] is empty. [issueNumber]
+//	is 0. [variant] is empty. [coverPrice] is 0.0. [paidPrice] is 0.0. [resalePrice] is
+//	0.0. [gradedResalePrice] is 0.0. [year] is 0. [grade] is 0.
+//	-Comic( String initialComicName, int initialIssueNumber ): Uses the mutator methods to 
+//	set [comicName] to [initialComicName] and [issueNumber] to [initialIssueNumber]. Mutators
+//	will put the initial values through checks before setting the instance variables.
+//	-Comic( String initialComicName, int initialIssueNumber, String initialArc, String 
+//	initialPublisher, double initialCoverPrice, double initialPaidPrice, double
+//	initialResalePrice, double initialGrade, double initialGradedPrice, int initialYear ):
+//	Use mutator methods to set the initial values of the corresponding instance variables
+//	and to also check for valid input.
+//	-Comic( Comic otherComic ): retrieves the values of the instance variables for 
+//	[otherComic] using the accessors and sets the values of the current instance variables
+//	to those of [otherComic] using mutator methods
+...............................................................................................
+// Accessors:
+//	-(String) getComicName(): returns [comicName]
+//	-(int) getIssueNumber(): returns [issueNumber]
+//	-(String) getComicArc(): returns [comicArc]
+//	-(String) getPublisher(): returns [publisher]
+//	-(double) getCoverPrice(): returns [coverPrice]
+//	-(double) getPaidPrice(): returns [paidPrice]
+//	-(double) getResalePrice(): returns [resalePrice]
+//	-(double) getGrade(): greturns [grade]
+//	-(double) getGradedPrice(): returns [gradedPrice]
+//	-(int) getYear(): returns [year]
+...............................................................................................
+// Mutators:
+//	-(void) setComicName( String newComicName ): Sets [comicName] to [newComicName]
+//	-(void) setIssueNumber( int newIssueNumber ): If [newIssueNumber] is negative, alert 
+//	user and make positive. Set [issueNumber] to [newIssueNumber]
+//	-(void) setComicArc( String newComicArc ): Make [newComicArc] all uppercase. Set [comicArc]
+//	to [newComicArc].
+//	-(void) setPublisher( String newPublisher ): Make [newPublisher] all uppercase. Set
+//	[publisher] to [newPublisher].
+//	-(void) setCoverPrice( double newCoverPrice ): If [newCoverPrice] is negative, make positive.
+//	Set [coverPrice] to [newCoverPrice].
+//	-(void) setPaidPrice( double newPaidPrice ): If [newPaidPrice] is negative, make positive.
+//	Set [paidPrice] to [newPaidPrice].
+//	-(void) setResalePrice( double newResalePrice ): If [newResalePrice] is negative, make
+//	positive. Set [resalePrice] to [newResalePrice].
+//	-(void) setGrade( double newGrade ): If [newGrade] is not between 0 and 10 (inclusive), 
+//	alert user. Refrain from changing [grade] unless [newGrade] is valid value. Else, set
+//	[grade] to [newGrade].
+//	-(void) setGradedPrice( double newGradedPrice ): If [newGradedPrice] is negative, make 
+//	positive. If [newGradedPrice] is less than [coverPrice] alert user of invalid value.
+//	Else, set [gradedPrice] to [newGradedPrice].
+//	-(void) setYear( int newYear ): If [newYear] is not between 1800 and 2020 or [newYear]
+//	is not equal to 0, alert user of invalid input. Else, set [year] to [newYear].
+...............................................................................................
+// Methods:
+//	-(boolean) equals( Comic otherComic ): Returns true only if all instance variables are
+//	the same. Use compareTo() method to check for equality. If 0 is returned, return true.
+//	Else, return false.
+//	-(String) toString(): Puts the instance variables in a pleasant format and returns it.
+//	-(int) compareTo( Comic otherComic ): The order that this method compares 2 Comic objects
+//	is [publisher] >> [comicName] >> [year] >> [issueNumber] >> [comicArc] >> [grade] >>
+//	[coverPrice] >> [resalePrice] >> [gradedPrice], where we only compare the next values
+//	if the previous ones are equal.:
+//		-if this [publisher] is equal to the [otherComic]'s [publisher]:
+//			-If this [comicName] is equal to [otherComic]'s [comicName]:
+//				-If this [year] is equal to [otherComic]'s [year]:
+//					-If this [issueNumber] is equal to [otherComic]'s [issueNumber]:
+//						-and so on and so forth....
+//						-if it goes down to [gradedPrice] and is still equal
+//						return 0.
+//					-else,
+//						-if this [year] is greater than [otherComic]'s [year], 
+//						return 1.
+//						-else, return -1.
+//					
+//				-else,
+//					-if this [year] is greater than [otherComic]'s [year], 
+//					return 1.
+//					-else, return -1.
+//			-else,
+//				-if this [comicName] is greater than [otherComic]'s [comicName], 
+//				return 1.
+//				-else, return -1.
+//		-else,
+//			-if this [publisher] is greater than [otherComic]'s [publisher], return 1.
+//			-else, return -1. 
+=================================================================================================
+//Algorithm - ComicList Class
+// Instance Variables:
+//	-private ArrayList <Comic> comicList;
+.................................................................................................
+// Constructors:
+//	-ComicList(): Default constructor. Sets [comicList] to null.
+//	-ComicList( Comic initialComic ): adds [initialComic] to the [comicList]
+//	-ComicList( ComicList otherList ): for the length of [otherList], go through every index 
+//	and retrieve that Comic to add it to [comicList]
+.................................................................................................
+// Accessors:
+//	-(Comic) getComic( int index ): If index is greater than or equal to [comicList]  or 
+//	[index] is less than 0, alert user that it doesn't exist and return null.
+.................................................................................................
+// Mutators:
+//	-(void) setComic( int index, Comic newComic ): If index is greater than or equal to the
+//	size of [comicList] or [index] is negative, alert user of illegal input and do nothing.
+//	Else, use the set() method to set the value of the comic in [comicList] at the [index]
+//	-(void) addComic( Comic newComic ): Uses the ArrayList method add() to add the [newComic]
+//	to the
+=================================================================================================
+//Algorithm - ComicDisplay Class
+// Uses javax.Swing.*
