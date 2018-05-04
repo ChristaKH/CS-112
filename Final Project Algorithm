@@ -163,4 +163,5 @@ Features:
 //	to the
 =================================================================================================
 //Algorithm - ComicDisplay Class
-// Uses javax.Swing.*
+// Uses javax.Swing.JFrame
+// Uses javax.swing.JPanel
