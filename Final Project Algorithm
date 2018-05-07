@@ -188,47 +188,50 @@ by having them press a button with their logo)
 // Initial Variables: 
 //	-(int) WIDTH: start at 300, change later if not enough
 //	-(int) HEIGHT: start at 200, change later if not enough	
+//	-(JPanel) main: holds the setup for the main page which includes a title and 6 buttons.
 // Constructor:
 //	-Setting up JFrame format:
 // 		-Pass "Comic Log" into super
 //		-Set size to [WIDTH] and [LENGTH]	
 //		-Set layout to FlowLayout
 //		-Set the default close operation to exit on close
-//		-Create JLabel [title] with an argument TBD
-//		-Add [title] to the JFrame
 //	-Setting up panel of buttons:
-//		-Create JPanel [mainButtons] which will hold all 4 buttons of the main page
-//		-Set [mainButtons] layout to a GridLayout of (2,2)
+//		-Create JPanel [main] which will hold all 6 buttons of the main page
+//		-Set [main] layout to a GridLayout of (2,2)
 //		-1) Create JButton [viewComics] with an argument of "View Comics". This button should allow 
 //		user to see all of the comics in the log. This will actually lead to a new JFrame that will 
 //		help the user choose how they want to view the log.
 //		-Add action listener to [viewComics]
-//		-Add [viewComics] to [mainButtons]
+//		-Add [viewComics] to [main]
 //		-2) Create JButton [addComics] with an argument of "Add Comics". This button will allow
 //		you to input more comics into the log. This should actually take you to a page that will
 //		make the input process a little easier.
 //		-Add action listener to [addComics]
-//		-Add [inputComics] to [mainButtons]
+//		-Add [inputComics] to [main]
 //		-3) Create JButton [viewComicTotal] with an argument of "View Comic Total". This button should
 //		take the user to a simple JFrame that will tell the user how many comics were collected
 //		so far and possibly how much of each publisher were purchased.
 //		-Add action listener to [viewComicTotal]
-//		-Add [viewComicTotal] to [mainButtons]
+//		-Add [viewComicTotal] to [main]
 //		-4) Create JButton [wantList] with an argument of "Want List". This should take the user to 
 //		another JFrame that will give the user the option to view the want list, add to the want list,
 //		or remove from the want list.
 //		-Add action listener to [wantList]
-//		-Add [wantList] to [mainButtons]
+//		-Add [wantList] to [main]
 //		-5) Create JButton [missingComics] with an argument of "Missing Comics". This should lead to a 
 //		JFrame that will automatically update everytime the list of comics is changed. 
 //		-Add action listener to [missingComics]
-//		-Add [missingComics] to [mainButtons]
+//		-Add [missingComics] to [main]
 //		-6) Create JButton [removeComics] with an argument "Remove Comics". This button will take the 
 //		user to a JFrame that will allow the user to remove a comics from the list
 //		-Add action listener to [removeComics]
-//		-Add [removeComics] to [mainButtons]
-//	-Add [mainButtons]  to the JFrame
+//		-Add [removeComics] to [main]
+//	-Add [main]  to the JFrame
 
+
+
+//Algorithm - MainListener inner class
+// implements ActionListener
 
 
 
