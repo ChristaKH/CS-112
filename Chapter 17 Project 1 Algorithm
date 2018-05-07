@@ -17,5 +17,24 @@
 //Algorithm - PigLatin class
 // Uses java.util.Scanner
 // Uses javax.swing.JFrame
+// Uses javax.swing.JButton
+// Uses javax.swing.JTextArea
 // Uses java.awt.Flowlayout
+// Uses java.awt.event.ActionListener
+// Uses java.awt.event.ActionEvent
 // Extends JFrame
+// Implements ActionListener
+// -Set layout to flowlayout 
+// -Set size to standard 300, 200
+// -Create JTextArea object [english] with arguments ("Enter english sentence here", 1 )
+// -Create JTextArea object [pigLatin] and set editable to false
+// -Create JButton object [translate] with argument ("Translate")
+// Method:
+// (void) actionPerformed( ActionEvent e ): 
+//	-Create Scanner variable [keyboard]
+//	-Create String [text] 
+//	-Create String [temp]
+//	-While [keyboard] has next:
+//		-Read a word into [temp]
+//		-If the first character of [temp] is 'a', 'e', 'i', 'o', 'u', or 'y':
+//			-[temp] equals [temp] plus "way" at the end
