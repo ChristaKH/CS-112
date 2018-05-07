@@ -1,0 +1,10 @@
+/* CS112      Chapter 17 Project 1
+ * Christa Hatch      05/06/18
+ */
+ 
+ // This code takes in an english sentence and 
+ // translates it to pig latin
+ // Rules are as follows:
+ // For words that start with consonants, move the leading constant to the end
+ // of the word and add "ay".
+ // For words that begin with vowels, add "way" to the end of the word.
