@@ -71,7 +71,6 @@ public class PigLatin extends JFrame implements ActionListener
          }  
          text = text + temp + " ";           
      }
-     System.out.println( text );
      pigLatin.setText( text );
    }
 }
