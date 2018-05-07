@@ -18,6 +18,7 @@ public class PigLatin extends JFrame implements ActionListener
    public static final int WIDTH = 350;
    public static final int HEIGHT = 200; 
    private JTextField pigLatin;
+   private JTextField english;
    
    public PigLatin()
    {
@@ -28,7 +29,7 @@ public class PigLatin extends JFrame implements ActionListener
       setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
       
       //Create components that will take up the Frame
-      JTextField english = new JTextField( "Enter english sentence here", 30 );
+      english = new JTextField( 30 );
       
       pigLatin = new JTextField(30);
       pigLatin.setEditable( false );
@@ -45,7 +46,7 @@ public class PigLatin extends JFrame implements ActionListener
    //Create the action that will cause the entered text to be turned to pig latin
    public void actionPerformed( ActionEvent e )
    {
-      Scanner keyboard = new Scanner( System.in ); 
+      Scanner keyboard = new Scanner( english.getText() ); 
       String text = "";
       String temp = "";
       char consonant = ' ';
@@ -70,7 +71,7 @@ public class PigLatin extends JFrame implements ActionListener
          }  
          text = text + temp + " ";           
      }
-     
+     System.out.println( text );
      pigLatin.setText( text );
    }
 }
