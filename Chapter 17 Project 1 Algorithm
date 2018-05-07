@@ -9,3 +9,13 @@
 // of the word and add "ay".
 // For words that begin with vowels, add "way" to the end of the word.
 // Use Flowlayout with JTextArea for source text and a separate JTextArea for the translated part 
+..................................................................................................................
+//Algorithm - main 
+// -Create PigLatin object called [piggy]
+// -set [piggy] to visible
+...................................................................................................................
+//Algorithm - PigLatin class
+// Uses java.util.Scanner
+// Uses javax.swing.JFrame
+// Uses java.awt.Flowlayout
+// Extends JFrame
