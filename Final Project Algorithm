@@ -163,7 +163,7 @@ by having them press a button with their logo)
 //	-(void) addComic( Comic newComic ): Uses the ArrayList method add() to add the [newComic]
 //	to the
 =================================================================================================
-//Algorithm - MainComicDisplayPage Class
+//Algorithm - ComicDisplay Class
 /* Main page of the GUI
  * First page you see when the GUI opens
  * Has Comic book related background 
@@ -180,14 +180,21 @@ by having them press a button with their logo)
 // Uses javax.swing.JButton
 // Uses javax.swing.JLabel
 // Uses javax.swing.ImageIcon
+// Uses javax.swing.JLayeredPane
 // Uses java.awt.GridLayout
 // Uses java.awt.FlowLayout
+// Uses java.awt.BorderLayout
 // Uses javax.swing.ActionListener
 // Uses javax.swing.ActionEvent
+// Uses java.awt.Dimension
+// Uses java.awt.Color
+// Uses java.awt.Font
 // Extends JFrame
 // Initial Variables: 
-//	-(int) WIDTH: start at 300, change later if not enough
-//	-(int) HEIGHT: start at 200, change later if not enough	
+//	-(int) WIDTH: start at 600, change later if not enough
+//	-(int) HEIGHT: start at 450, change later if not enough	
+//	-(int) MENU_BUTTON_WIDTH: Starts at 125. This is the width of the buttons displayed on the main page
+//	-(int) MENU_BUTTON_HEIGHT: Starts at 65. This is the height of the buttons displayed on the main page
 //	-(JPanel) main: holds the setup for the main page which includes a title and 6 buttons.
 // Constructor:
 //	-Setting up JFrame format:
@@ -195,41 +202,59 @@ by having them press a button with their logo)
 //		-Set size to [WIDTH] and [LENGTH]	
 //		-Set layout to FlowLayout
 //		-Set the default close operation to exit on close
+//	-Adding the background:
+//		-Create JLayeredPane [layers]
+//		-Set the size of [layers] to that of the JFrame
+//		-Create a JPanel [background] and set the size to that of the JFrame
+//		-Create a JLabel [back] and attach the desired image to it using ImageIcon class
+//		-Add [back] to [background]
+//		-Add [background] to the default layer of [layers]
 //	-Setting up panel of buttons:
 //		-Create JPanel [main] which will hold all 6 buttons of the main page
-//		-Set [main] layout to a GridLayout of (2,2)
+//		-Set size to that of [main] to that of the JFrame
+//		-Change the opacity of [main] to false so that the panel is transparent
+//		-Set [main] layout to a FlowLayout with the arguments (FlowLayout.CENTER, 50, 30)
+//		-Create JLabel [header] to set the title of the main page to "Comic Menu"
+//		-Set the [header]'s horizontal alignment to center
+//		-Set the text color to white
+//		-Set the font to bold and of font size 30
+//		-Set the size of the JLabel [header] to [WIDTH] by 50
 //		-1) Create JButton [viewComics] with an argument of "View Comics". This button should allow 
 //		user to see all of the comics in the log. This will actually lead to a new JFrame that will 
 //		help the user choose how they want to view the log.
+//		-Set the dimensions of [viewComics] to [MENU_BUTTON_WIDTH] by [MENU_BUTTON_HEIGHT]
 //		-Add action listener to [viewComics]
 //		-Add [viewComics] to [main]
-//		-2) Create JButton [addComics] with an argument of "Add Comics". This button will allow
-//		you to input more comics into the log. This should actually take you to a page that will
-//		make the input process a little easier.
-//		-Add action listener to [addComics]
-//		-Add [inputComics] to [main]
-//		-3) Create JButton [viewComicTotal] with an argument of "View Comic Total". This button should
-//		take the user to a simple JFrame that will tell the user how many comics were collected
-//		so far and possibly how much of each publisher were purchased.
-//		-Add action listener to [viewComicTotal]
-//		-Add [viewComicTotal] to [main]
-//		-4) Create JButton [wantList] with an argument of "Want List". This should take the user to 
+//		-2) Create JButton [wantList] with an argument of "Want List". This should take the user to 
 //		another JFrame that will give the user the option to view the want list, add to the want list,
 //		or remove from the want list.
+//		-Set the dimensions of [wantList] to [MENU_BUTTON_WIDTH] by [MENU_BUTTON_HEIGHT]
 //		-Add action listener to [wantList]
 //		-Add [wantList] to [main]
+//		-3) Create JButton [addComics] with an argument of "Add Comics". This button will allow
+//		you to input more comics into the log. This should actually take you to a page that will
+//		make the input process a little easier.
+//		-Set the dimensions of [addComics] to [MENU_BUTTON_WIDTH] by [MENU_BUTTON_HEIGHT]
+//		-Add action listener to [addComics]
+//		-Add [inputComics] to [main]
+//		-4) Create JButton [viewComicTotal] with an argument of "View Comic Total". This button should
+//		take the user to a simple JFrame that will tell the user how many comics were collected
+//		so far and possibly how much of each publisher were purchased.
+//		-Set the dimensions of [viewComicTotal] to [MENU_BUTTON_WIDTH] by [MENU_BUTTON_HEIGHT]
+//		-Add action listener to [viewComicTotal]
+//		-Add [viewComicTotal] to [main]
 //		-5) Create JButton [missingComics] with an argument of "Missing Comics". This should lead to a 
 //		JFrame that will automatically update everytime the list of comics is changed. 
+//		--Set the dimensions of [missingComics] to [MENU_BUTTON_WIDTH] by [MENU_BUTTON_HEIGHT]
 //		-Add action listener to [missingComics]
 //		-Add [missingComics] to [main]
 //		-6) Create JButton [removeComics] with an argument "Remove Comics". This button will take the 
 //		user to a JFrame that will allow the user to remove a comics from the list
+//		-Set the dimensions of [removeComics] to [MENU_BUTTON_WIDTH] by [MENU_BUTTON_HEIGHT]
 //		-Add action listener to [removeComics]
 //		-Add [removeComics] to [main]
-//	-Add [main]  to the JFrame
-
-
-
+//	-Add [main]  to the popup layer of [layers]
+//	-Add [layers] to the JFrame
 //Algorithm - MainListener inner class
 // implements ActionListener
 
