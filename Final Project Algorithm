@@ -255,8 +255,12 @@ by having them press a button with their logo)
 //		-Add [removeComics] to [main]
 //	-Add [main]  to the popup layer of [layers]
 //	-Add [layers] to the JFrame
+//Algorithm - ViewComicList inner class
+// extends JPanel
+// implements ActionListener
 //Algorithm - MainListener inner class
 // implements ActionListener
+//	-If [viewComics] is clicked, set the popup layer to an instance of the ViewComicList class
 
 
 
