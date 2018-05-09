@@ -196,6 +196,7 @@ by having them press a button with their logo)
 //	-(int) MENU_BUTTON_HEIGHT: Starts at 65. This is the height of the buttons displayed on the main page
 //	-(JPanel) main: holds the setup for the main page which includes a title and 6 buttons.
 //	-(ViewComicListPanel) viewComicListPanel: will be instantiated if [viewComics] is clicked
+//	-(JLayeredPane) layers: Will enable us to have a bacground on the GUI and to switch from panel to panel
 // Constructor:
 //	-Setting up JFrame format:
 // 		-Pass "Comic Log" into super
@@ -203,7 +204,7 @@ by having them press a button with their logo)
 //		-Set layout to FlowLayout
 //		-Set the default close operation to exit on close
 //	-Adding the background:
-//		-Create JLayeredPane [layers]
+//		-Instantiate [layers]
 //		-Set the size of [layers] to that of the JFrame
 //		-Create a JPanel [background] and set the size to that of the JFrame
 //		-Create a JLabel [back] and attach the desired image to it using ImageIcon class
