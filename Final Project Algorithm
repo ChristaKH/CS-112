@@ -256,15 +256,13 @@ by having them press a button with their logo)
 //		-Add [removeComics] to [main]
 //	-Add [main]  to the popup layer of [layers]
 //	-Add [layers] to the JFrame
-//Algorithm - ViewComicList inner class
-// extends JPanel
-// implements ActionListener
-//Algorithm - MainListener inner class
-// implements ActionListener
-//	-If [viewComics] is clicked:
-//		-instantiate [viewComicListPanel] with arguments ( [WIDTH], [HEIGHT] ) to set the dimensions of the panel
-//		-remove [main] from [layers]
-//		-add [viewComicListPanel] to the popup layer of [layers]
+// Methods:
+//	-(void) actionPerformed( ActionEvent e ): Creates a response for when the buttons on the main page are pressed.
+//		-If [viewComics] was clicked:
+//			-Instantiate [viewComicListPanel] with WIDTH and HEIGHT as parameters
+//			-Remove the current panel [main] from [layers]
+//			-Repaint and revalidate
+//			-Add [viewComicListPanel] to the popup layer of [layers]
 =============================================================================================================================
 //Algorithm - ViewComicListPanel class
 /* This class is a panel that is activated when the user wants to view comics.
@@ -282,7 +280,7 @@ by having them press a button with their logo)
 // Instance Variables:
 //	-(int) width: width of the JFrame and panels
 //	-(int) height: height of the JFrame and panels
-//	-(ViewComicListMain) viewMain: main page for the ViewComicListPanel class
+//	-(JPanel) viewMain: main page for the ViewComicListPanel class
 //	-(ArcBasedPanel) arcBased: page for listing the comics based on arc
 //	-(NameBasedPanel) nameBased: page for listing the comics based on name
 //	-(PublisherBasedPanel) publisherBased: page for listing the comics based on publisher
@@ -293,6 +291,7 @@ by having them press a button with their logo)
 //		-Set the size of this JPanel to ([width], [height])
 //		-Set opacity to false
 //		-Instantiate [viewMain]
+//		-Set [viewMain] size and opacity to false
 //		-add [viewMain] to this JPanel
 // Methods:
 //	-(void) setWidth( int newWidth ): Checks to see if [newWidth] is a positive number. If not, make [newWidth] a positive
