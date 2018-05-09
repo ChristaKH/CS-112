@@ -273,7 +273,12 @@ by having them press a button with their logo)
  * And the panel for diplaying comics based on publisher.
  */
 // Uses javax.swing.JPanel
+// Uses javax.swing.JButton
+// Uses javax.swing.JLabel
 // Uses java.awt.Dimensions
+// Uses java.awt.BorderLayout
+// Uses java.awt.Font
+// Uses java.awt.Color
 // Uses java.awt.event.ActionListener
 // Uses java.awt.event.ActionEvent
 // Extends JPanel
@@ -292,6 +297,13 @@ by having them press a button with their logo)
 //		-Set opacity to false
 //		-Instantiate [viewMain]
 //		-Set [viewMain] size and opacity to false
+//		-Set [viewMain] layout to BorderLayout
+//		-Create a JLabel title for the page [title] and have it say "View Comics" for the title
+//		-Add [title] to the north of [viewMain]
+//		-Set the color and font of [title]
+//		-Button #1) Create JButton [arcView] which will allow the user to view the list of comics organized by arc
+//		-Add action listener
+//		-Add [arcView] to the west of [viewMain]
 //		-add [viewMain] to this JPanel
 // Methods:
 //	-(void) setWidth( int newWidth ): Checks to see if [newWidth] is a positive number. If not, make [newWidth] a positive
