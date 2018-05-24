@@ -1,0 +1,128 @@
+import java.util.Random;
+import javax.swing.JFrame;
+import java.awt.Graphics;
+import java.awt.Color;
+
+public class Triangles extends JFrame
+{
+   private Target a;
+   private Target b;
+   private Target c;
+   private Target target;
+   private Target current;
+   private int loops;
+   
+   public static final int WIDTH = 300;
+   public static final int HEIGHT = 300;
+   
+   public Triangles( int num )
+   {
+      loops = num;
+      
+      a = new Target( 10, HEIGHT - 10 );
+      b = new Target( ( WIDTH/2 ) + 10, 10 );
+      c = new Target( ( WIDTH - 10 ), ( HEIGHT - 10 ) );
+      current = new Target( a );
+      target = new Target( b );
+      
+      this.setSize( WIDTH, HEIGHT );
+       this.setDefaultCloseOperation( EXIT_ON_CLOSE );
+       this.getContentPane().setBackground( Color.WHITE );
+   }
+   
+   public void setCurrent()
+   {
+     this.setTarget();
+     int newX = ( target.getX() - current.getX() )/2;
+     int newY = (target.getY() - current.getY() )/2;
+     
+     if( target.getX() < current.getX() )
+     {
+         newX += target.getX();
+     }
+     else
+     {
+         newX += current.getX(); 
+     }
+     
+     if( target.getY() < current.getY() )
+     {
+         newY += target.getY();
+     }
+     else
+     {
+         newY += current.getY(); 
+     }
+     
+     current = new Target( newX, newY );
+   }
+   
+   public void setTarget()
+   {
+      int temp = 0;
+      Random ran = new Random();
+      temp = ran.nextInt( 100 ) % 4;
+      while( temp == 0 )
+      {
+         temp = ran.nextInt( 100 ) % 4;
+      }
+      switch( temp )
+      {
+         case 1:
+            target = new Target( a );
+            break;
+         case 2:
+            target = new Target( b );
+            break;
+         case 3:
+            target = new Target( c );
+            break;
+         default:
+            target = new Target( a );
+      }
+   }
+   
+   public void paint( Graphics g )
+   {
+      g.setColor( Color.BLACK );
+      for( int i = 0; i <= loops; i++ )
+      {
+         g.drawLine( current.getX(), current.getY(), current.getX(), current.getY() );
+         this.setCurrent();
+      }
+   }
+   
+   private class Target
+   {
+      private int x;
+      private int y;
+      
+      public Target( int x, int y )
+      {
+         x = x;
+         y = y;
+      }
+      
+      public Target( Target otherTarget )
+      {
+         x = otherTarget.getX();
+         y = otherTarget.getY();
+      }
+      
+      public int getX()
+      {
+         return x;
+      }
+      
+      public int getY()
+      {
+         return y;
+      }
+   }
+   
+   public static void main( String [] args )
+   {
+      Triangles tri = new Triangles( 100 );
+      tri.setVisible( true );
+   }
+}
